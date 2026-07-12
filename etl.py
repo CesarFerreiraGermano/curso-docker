@@ -169,7 +169,7 @@ def main():
         r = c.execute(text(f"""
             SELECT regiao,
                    COUNT(*)                    AS pedidos,
-                   ROUND(SUM(valor_total), 2)  AS faturamento
+                   ROUND(SUM(valor_total)::numeric, 2)  AS faturamento
             FROM {TABELA}
             GROUP BY regiao
             ORDER BY faturamento DESC
